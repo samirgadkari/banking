@@ -1,0 +1,4 @@
+python commonBanks.py > commonBanksRSSD
+python singleDataframe.py > ../processingResults/processedFullDataframe
+python reportingPeriodAverages.py > ../processingResults/reportingPeriodAverages
+python incomeAvgsOverTime.py
