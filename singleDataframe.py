@@ -1,6 +1,7 @@
 
 import os
 import pandas as pd
+import numpy as np
 
 # User parameters
 root_dir = "../data/commonBanks"      # top directory containing subdirectories
@@ -102,6 +103,8 @@ for subdir_name in sorted(os.listdir(root_dir)):
 if all_results:
 
     final_df = pd.concat(all_results, axis=0, ignore_index=True)
+    final_df.fillna(0, inplace=True)
+    final_df.replace([np.inf, -np.inf], 0, inplace=True)
 
     # Print as tab-delimited text
     # If you prefer writing to a file, replace print(...) with final_df.to_csv("output.txt", sep="\t", index=False)
