@@ -50,8 +50,8 @@ for subdir_name in sorted(os.listdir(root_dir)):
 if common_values is None:
     print("No valid files processed.")
 else:
-    print("Common RSSD values in first column across all files:")
+    # print("Common RSSD values in first column across all files:")
     for val in sorted(common_values):
         print(val)
 
-    print("Number of common values: ", len(common_values))
+    # print("Number of common values: ", len(common_values))
