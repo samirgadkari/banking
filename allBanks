@@ -1,0 +1,5 @@
+python allBanks.py ../data/allBanks > ../data/allBanks/allBanksRSSD
+python singleDataframe.py ../data/allBanks ../data/allBanks/allBanksRSSD > ../processingResults/AllBanksDataframe
+#python reportingPeriodAverages.py > ../processingResults/reportingPeriodAverages
+#python incomeAvgsOverTime.py
+#python raroe.py > ../processingResults/raroe

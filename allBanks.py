@@ -9,7 +9,7 @@ else:
     print(f"Directory location to data required")
     exit()
 
-common_values = None  # Will hold the running intersection of first-column values
+all_values = None  # Will hold the running intersection of first-column values
 
 # Iterate over sub-directories in alphabetical order
 for subdir_name in sorted(os.listdir(root_dir)):
@@ -45,17 +45,17 @@ for subdir_name in sorted(os.listdir(root_dir)):
         col_values = set(df.iloc[:, 0].dropna())
 
         # Initialize or intersect with running set
-        if common_values is None:
-            common_values = col_values
+        if all_values is None:
+            all_values = col_values
         else:
-            common_values &= col_values
+            all_values |= col_values
 
 # Print the final result
-if common_values is None:
+if all_values is None:
     print("No valid files processed.")
 else:
-    # print("Common RSSD values in first column across all files:")
-    for val in sorted(common_values):
+    # print("All RSSD values in first column across all files:")
+    for val in sorted(all_values):
         print(val)
 
-    # print("Number of common values: ", len(common_values))
+    # print("Number of all values: ", len(all_values))

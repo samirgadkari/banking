@@ -1,12 +1,23 @@
-
+import sys
 import os
 import pandas as pd
 import numpy as np
 
 # User parameters
-root_dir = "../data/commonBanks"      # top directory containing subdirectories
-info_numeric_file = "./commonBanksRSSD"  # file with numeric values (one per line or tab-delimited)
 info_columns_file = "extractColumns"  # file with column names (one per line or tab-delimited)
+
+# Set this to your top-level directory that contains the sub-directories
+if len(sys.argv) > 1:
+    root_dir = sys.argv[1]
+else:
+    print(f"Directory location to data required")
+    exit()
+
+if len(sys.argv) > 2:
+    info_numeric_file = sys.argv[2]
+else:
+    print(f"RSSD file required")
+    exit()
 
 # -------------------------------------------------------------------
 # Read filter values
