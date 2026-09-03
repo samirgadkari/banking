@@ -13,6 +13,7 @@ else:
     print(f"Directory location to data required")
     exit()
 
+# These are the RSSDs of the banks you're interested in
 if len(sys.argv) > 2:
     info_numeric_file = sys.argv[2]
 else:
@@ -114,7 +115,12 @@ for subdir_name in sorted(os.listdir(root_dir)):
 if all_results:
 
     final_df = pd.concat(all_results, axis=0, ignore_index=True)
-    final_df.fillna(0, inplace=True)
+    final_df["Reporting Period End Date"] = pd.to_datetime(
+            final_df["Reporting Period End Date"])
+
+    final_df[final_df.columns[1:]] = final_df.iloc[:, 1:] \
+        .astype('Int64') \
+        .fillna(0)
     final_df.replace([np.inf, -np.inf], 0, inplace=True)
 
     # Print as tab-delimited text
