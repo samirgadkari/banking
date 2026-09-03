@@ -2,14 +2,15 @@
 import pandas as pd
 
 # Path to the saved tab-delimited dataframe file
-input_file = "../processingResults/processedFullDataFrame"
+input_file = "../processingResults/commonBanksDataframe"
 
 # Read the tab-separated file
 # Assume first row has column names, first col = reporting date, second col = IDRSSD
 df = pd.read_csv(input_file, sep="\t")
 
 # Ensure reporting period end date is treated as datetime (optional but useful)
-df.iloc[:, 0] = pd.to_datetime(df.iloc[:, 0])
+df["Reporting Period End Date"] = pd.to_datetime(
+    df["Reporting Period End Date"])
 
 # Convert IDRSSD to numeric just in case
 df.iloc[:, 1] = pd.to_numeric(df.iloc[:, 1], errors="coerce")

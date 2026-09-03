@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 # Path to the saved tab-delimited dataframe file
-input_file = "../processingResults/processedFullDataFrame"
+input_file = "../processingResults/commonBanksDataframe"
 raroe_specific_companies_file = "../processingResults/raroeSpecificCompanies"
 raroe_file = "../processingResults/raroe"
 
